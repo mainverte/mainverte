@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Verte</title>
+    <link rel="shortcut icon" href="assets/fonts/logo.png" type="image/x-icon">
+</head>
+<style>
+    /******************* PARAMETRES DEFAUT ***********************/
+    *{
+        padding: 0;margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    a{
+        text-decoration: none;
+    }
+    body{
+        background-color: black;
+    }
+    .containerHeader{
+        width: 100vw;
+        height:600px;
+        background: url("assets/fonts/DPEH34ie_2x.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    .BoxHeader{
+        width: 100%;
+        height: 120px;
+        background-color: rgba(0, 0, 0, 0.67);
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "containerLogo containerNavigator containerNavigator";
+    }
+    .containerLogo{
+        grid-area: containerLogo;
+        display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        align-items: center;
+        margin-left: 100px;
+    }
+    .containerNavigator{
+        grid-area: containerNavigator;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+    }
+    .imgLogo{
+        height: 120px;
+    }
+    .Nav{
+        font-size: 18px;
+        color: white;
+    }
+    .Nav:hover{
+        font-size: 18px;
+        color: rgb(17, 237, 17);
+    }
+    .textHero{
+        color: rgb(0, 255, 0);
+        display: flex;
+        justify-content: center;
+        text-align:center;
+        margin-top: 50px;
+        font-size: 64px;
+    }
+    .Titles{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: rgba(43, 178, 10, 1);
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        font-size: 32px;
+    }
+    .Titles:after{
+        display: inline-block;
+        margin: 0 0 8px 20px;
+        height: 2px;
+        content: "";
+        text-shadow: none;
+        background-color: rgba(66, 255, 0, 1);
+        width:140px;
+    }
+    .Titles:before{
+        display: inline-block;
+        margin: 0 20px 8px 0;
+        height: 2px;
+        content: "";
+        text-shadow: none;
+        background-color: rgba(66, 255, 0, 1);
+        width:140px;
+    }
+    .Boxapropos{
+        width: 100%;
+    }
+    .boxtextApropos{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .textApropos{
+        color: white;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        font-size: 22px;
+    }
+    .sapnAp{
+        font-size: 28px;
+    }
+    .boxservices{
+        width: 100%;
+        background-color: rgba(119, 207, 111, 1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .boxservice{
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display:grid;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 200px;
+        height: 270px;
+        background-color: rgba(193, 246, 180, 0.17);
+    }
+    .boximgservice{
+        margin-top: 20px;
+        width: 200px;
+        height: 150px;
+        border-radius: 39% 74% 28% 39% / 61% 49% 53% 41%;
+    }
+    .imgservice{
+        width: 150px;
+        height: 150px;
+        border-radius: 39% 74% 28% 39% / 61% 49% 53% 41%;
+    }
+    .boxtextservice{
+        font-size: 22px;
+        text-align: center;
+    }
+    .boxmagasin{
+        width: 100%;
+        background-color: rgba(196, 226, 189, 0.63);
+    }
+    .BoxproduitsMagasin{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .product-box{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 280px;
+        background-color: rgba(39, 119, 26, 0.57);
+        border-radius: 10px;
+    }
+    .product-img{
+        width: 200px;
+        height: 180px;
+        border-radius: 10px;
+    }
+    .product-title{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 22px;
+        font-weight: 100;
+
+    }
+    .add-cart{
+        border-radius: 10px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        height: 40px;
+        background-color: rgba(25, 85, 10, 0.21);
+        color: white;
+    }
+    .add-cart:hover{
+        background-color: rgb(11, 50, 11);
+    }
+    .Boxequipes{
+        width: 100vw;
+        background: url("assets/fonts/istockphoto-1143072996-1024x1024-transformed.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .boxequipe{
+        margin-top: 20px;
+        width: 190px;
+        height: 260px;
+        background-color: rgba(43, 178, 10, 0.5);
+    }
+    .imgequipe{
+        width: 190px;
+        height: 190px;
+    }
+    .boxdetailequipe{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nomEquipe{
+        color: white;
+        font-size: 18px;
+    }
+    .Boxadresses{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "boxadresses boxmap";
+    }
+    .boxadresses{
+        width: 100%;
+        grid-area: boxadresses;
+    }
+    .boxmap{
+        width: 100%;
+        grid-area: boxmap;
+    }
+    .Lesadresses{
+        margin-left: 50px;
+    }
+    .CarteMap{
+        align-items: center;
+        text-align: center;
+    }
+    .Adresse{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    .imgAdresse{
+        width: 40px;
+        height: 40px;
+    }
+    .titleAdresse{
+        color: white;
+        font-size: 18px;
+        margin-left: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .titleAdresse:hover{
+        color: rgb(15, 222, 15);
+    }
+    .BoxActions{
+        width: 100%;
+    }
+    .BoxActions{
+        gap: 0.5em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+        "boximg1 boximg1"
+        "boximg2 boximg3";
+    }
+    .boximg1{
+        width: 100%;
+        height: auto;
+        grid-area: boximg1;
+    }
+    .boximg2{
+        width: 100%;
+        height: auto;
+        grid-area: boximg2;
+    }
+    .boximg3{
+        width: 100%;
+        height: auto;
+        grid-area: boximg3;
+    }
+    .imgAction{
+        width: 100%;
+    }
+    form{
+        height: 400px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.7fr 0.7fr 2fr 0.4fr;
+        grid-template-areas:
+        "inputNom inputPrenom"
+        "inputNumero inputMail"
+        "inputMessage inputMessage"
+        "inputSubmit inputSubmit";
+    }
+    .inputNom{
+        grid-area: inputNom;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .inputPrenom{
+        grid-area: inputPrenom;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .inputNumero{
+        grid-area: inputNumero;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .inputMail{
+        grid-area: inputMail;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+        .inputMessage{
+        grid-area: inputMessage;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        }
+        .inputSubmit{
+        grid-area: inputSubmit;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        }
+        input{
+            width: 60%;
+            text-align: center;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: rgba(217, 217, 217, 1);
+        }
+        .submitC{
+            margin-bottom: 10px;
+            width: 30%;
+            background-color: rgba(33, 109, 222, 1);
+        }
+        textarea{
+            width: 80%;
+            text-align: center;
+            height: 190px;
+            border-radius: 20px;
+            border: none;
+            background-color: rgba(217, 217, 217, 1);
+        }
+        .MainFooter{
+            width: 100%;
+            background-color: rgba(185, 255, 160, 0.78);
+        }
+        .LESADRESSESFOOTER{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .LESLIENFOOTER{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 0.5rem;
+        }
+        .footerf{
+            color: white;
+        }
+        .footerf:hover{
+            color: black;
+        }
+        .textfooter{
+            margin-bottom: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+
+        }
+        .BoxPanier{
+            display: flex;
+            justify-content: center;
+            width: 30%;
+            height: 35px;
+            background-color: rgb(143, 221, 124);
+            border-radius: 30px;
+        }
+        .BoxPanier:hover{
+            background-color: rgb(41, 123, 20);
+        }
+        .cart {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: auto;
+            position: fixed;
+            top: 100px;
+            right: -100%;
+            width: 50%;
+            height: 500px;
+            padding: 20px;
+            background-color: rgba(3, 70, 3, 0.719);
+            box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+            transition: 0.3s;
+            border-radius: 20px;
+            }
+            .cart.active{
+            right: 0;
+            }
+            .cart-img{
+                align-items: center;
+            width: 250px;
+            height: 210px;
+            border-radius: 20px;
+            }
+            .fa-cart-shopping{
+                font-size: 28px;
+            }
+            .fa-cart-shopping:hover{
+                color: red;
+            }
+            .fa-trash{
+                font-size: 20px;
+            }
+            .fa-trash:hover{
+                color: red;
+            }
+            .cart-product-title{
+                color: white;
+                text-align: center;
+                font-size: 28px;
+            }
+            #close-cart{
+                position: absolute;
+                top: 1rem;
+                left: 0.8rem;
+                font-size: 2rem;
+                color: var(--text-color);
+                cursor: pointer;
+            }
+            .cart-title{
+                font-size: 30px;
+                text-align: end;
+                color: white;
+            }
+            .submit{
+                font-size: 24px;
+                color: white;
+                display: flex;
+                text-align: center;
+                align-items: center;
+            }
+            .main_send{
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                width: 200px;
+                height: 40px;
+                background-color: green;
+                border-radius: 20px;
+            }
+                   /*********** button pour aller en haut du page **************/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 65px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 128, 0, 0.511);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+#myBtn:hover {
+    background-color: rgb(5, 65, 5);
+}
+    @media screen and (max-width:610px) {
+        .containerHeader{
+        width: 100vw;
+        height:300px;
+        background: url("assets/fonts/DPEH34ie_2x.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-position: center;
+    }
+        .BoxHeader{
+        width: 100%;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.67);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "containerLogo containerNavigator containerNavigator";
+    }
+        .containerLogo{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+    .imgLogo{
+        height: 90px;
+    }
+    .containerNavigator{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+    }
+    .Nav{
+        font-size: 18px;
+        margin: 0 4px;
+    }
+    .textHero{
+        display: flex;
+        justify-content: center;
+        text-align:center;
+        margin-top: 50px;
+        font-size: 28px;
+    }
+    .Titles{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        font-size: 22px;
+    }
+    .Titles:after{
+        display: inline-block;
+        margin: 0 0 8px 5px;
+        height: 3px;
+        content: "";
+        text-shadow: none;
+        width: 35px;
+    }
+    .Titles:before{
+        display: inline-block;
+        margin: 0 5px 8px 0;
+        height: 3px;
+        content: "";
+        text-shadow: none;
+        background-color: rgba(66, 255, 0, 1);
+        width: 35px;
+    }
+    .textApropos{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .boxservice{
+        display:grid;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 160px;
+        height: 270px;
+    }
+    .boximgservice{
+        margin-top: 20px;
+        width: 160px;
+        height: 120px;
+        border-radius: 39% 74% 28% 39% / 61% 49% 53% 41%;
+    }
+    .imgservice{
+        width: 120px;
+        height: 120px;
+        border-radius: 39% 74% 28% 39% / 61% 49% 53% 41%;
+    }
+    .boxtextservice{
+        font-size: 22px;
+        text-align: center;
+    }
+    .cart {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: auto;
+            position: fixed;
+            top: 100px;
+            width: 80%;
+            height: 500px;
+            padding: 20px;
+            transition: 0.3s;
+            border-radius: 20px;
+            }
+    .product-box{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width: 160px;
+        height: 270px;
+        background-color: rgba(39, 119, 26, 0.57);
+        border-radius: 10px;
+    }
+    .product-img{
+        width: 160px;
+        height: 180px;
+        border-radius: 10px;
+    }
+    .product-title{
+        display: flex;
+        text-align: center;
+        font-size: 18px;
+
+    }
+    .add-cart{
+        border-radius: 10px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 160px;
+        height: 40px;
+        background-color: rgba(25, 85, 10, 0.21);
+    }
+    .boxequipe{
+        margin-top: 20px;
+        width: 160px;
+        height: 260px;
+        background-color: rgba(43, 178, 10, 0.5);
+    }
+    .imgequipe{
+        width: 160px;
+        height: 190px;
+    }
+    .boxdetailequipe{
+        text-align: center;
+    }
+    .nomEquipe{
+        font-size: 16px;
+    }
+    .tritreEquipe{
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    .Boxadresses{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "boxadresses boxadresses"
+        "boxmap boxmap";
+
+    }
+    .boxadresses{
+        width: 100%;
+        grid-area: boxadresses;
+        display: flex;
+        justify-content: center;
+
+    }
+    .boxmap{
+        width: 100%;
+        grid-area: boxmap;
+    }
+    .form{
+        height: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.6fr 0.6fr 1.5fr 0.6fr;
+        grid-template-areas:
+        "inputNom inputPrenom"
+        "inputNumero inputMail"
+        "inputMessage inputMessage"
+        "inputSubmit inputSubmit";
+    }
+    input{
+            width: 90%;
+            text-align: center;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+        }
+        .submitC{
+            width: 50%;
+            background-color: rgba(33, 109, 222, 1);
+        }
+        textarea{
+            width: 95%;
+            text-align: center;
+            height: 150px;
+            border-radius: 20px;
+            border: none;
+        }
+    }
+    .divpartenaires{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 0.2rem;
+        text-align: center;
+        align-items: center;
+    }
+    .imgpartenaires{
+        margin-bottom: 10px;
+        width: 200px;
+        height: 100px;
+        color: white;
+        font-size: 41px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .publicite{
+            width: 100%;
+            height: auto;
+            background-color: black;
+        }
+</style>
+<body>
+    <div class="containerHeader">
+        <div class="BoxHeader">
+            <div class="containerLogo">
+                <img class="imgLogo" src="assets/fonts/logo.png" alt="">
+            </div>
+            <div class="containerNavigator">
+                <a class="apropos Nav" href="#apropos">A propos</a>
+                <a class="services Nav" href="#services">Services</a>
+                <a class="magasin Nav" href="#magasin">Magasin</a>
+                <a class="equipes Nav" href="#equipes">Equipes</a>
+                <a class="adresses Nav" href="#adresses">Contacts</a>
+            </div>
+        </div>
+        <h1 class="textHero">TERREAU <br/>SEMIS ET REPIQUAGE</h1>
+    </div>
+    <section id="apropos" class="Boxapropos">
+        <h1 class="Titles">A PROPOS</h1>
+        <div class="boxtextApropos">
+            <p class="textApropos"><span class="sapnAp">La Main Verte</span><br>Est une société de prestation de service agricoles, de production et de vente d'intrants agricoles la réalisation des projets agricoles.</p>
+        </div>
+    </section>
+    <section id="services" class="Boxservices">
+        <h1 class="Titles">NOS SERVICES</h1>
+        <div class="boxservices">
+            <!----service---->
+            <div class="boxservice">
+                <div class="boximgservice">
+                    <img class="imgservice" src="assets/images/realisation.jpeg" alt="">
+                </div>
+                <h2 class="boxtextservice">Réalisation des projets agricoles</h2>
+            </div>
+            <!----service---->
+            <div class="boxservice">
+                <div class="boximgservice">
+                    <img class="imgservice" src="assets/images/production.jpeg" alt="">
+                </div>
+                <h2 class="boxtextservice">Production</h2>
+            </div>
+            <!----service---->
+            <div class="boxservice">
+                <div class="boximgservice">
+                    <img class="imgservice" src="assets/images/store-with-sign-we-are-open_23-2148572779.jpg.webp" alt="">
+                </div>
+                <h2 class="boxtextservice">Commercialisation des produits agricoles</h2>
+            </div>
+            <!----service---->
+            <div class="boxservice">
+                <div class="boximgservice">
+                    <img class="imgservice" src="assets/images/materiel.jpeg" alt="">
+                </div>
+                <h2 class="boxtextservice">Vente les intrants agricoles et les matériels d'irrigation</h2>
+            </div>
+            <!----service---->
+            <div class="boxservice">
+                <div class="boximgservice">
+                    <img class="imgservice" src="assets/images/formation.jpg" alt="">
+                </div>
+                <h2 class="boxtextservice">Formations</h2>
+            </div>
+        </div>
+    </section>
+    <section id="magasin" class="magasin">
+        <h1 class="Titles">NOS PRODUITS</h1>
+        <div class="boxmagasin">
+            <div class="BoxPanier" id="cart-icon">
+                <img src="assets/icons/paniers.png" style="width: 35px;height: 35px;" alt="" class="panier" >
+                <h1>Panier</h1>
+            </div>
+                <!--Cart-->
+    <div class="cart">
+        <div class="cart-title">Votre panier</div>
+        <!--content-->
+    <div class="cart-content">
+
+    </div>
+    <div class="main_send" id="submit" onclick="gotowhatsapp()" >
+        <div class="submit" class="cwhatsapp"><img src="assets/icons/whatsapp-2.png" style="height: 30px;width: 30px;" alt="">WhatsApp</div>
+    </div>
+    <script src="https://webaxen.com/js/jquery3.6.min.js"></script>
+    <script src="https://webaxen.com/js/bootstrap.bundle.min.js"></script>
+    <script src="https://webaxen.com/js/owl.carousel.min.js"></script>
+    <script src="https://webaxen.com/js/script.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        function gotowhatsapp(){
+        var image = document.getElementById("cimg").src;
+        var title = document.getElementById("ctitle").innerText;
+
+        var url ="https://wa.me/22373732677?text="
+        + "J'ai vu ceci sur votre site ....."
+        + "PICTURE :" + image + ";"
+        + "PRODUIT :" + title + ";"
+        window.open(url, '_blank').focus();
+    }
+    </script>
+    <!--Cart close-->
+    <img id="close-cart" class="fa-xmark" src="assets/icons/manque.png" style="width: 40px;height: 40px;" alt="">
+    </div>
+        <div class="BoxproduitsMagasin">
+                <!---Produis--->
+            <div class="product-box">
+                <img id="cimg" class="product-img" src="assets/images/Produits/semences de piment Efia f1.jpeg" alt="">
+                <h2 id="ctitle" class="product-title">Semences de piment Efia f1</h2>
+                <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+            </div>
+            <!---Produis--->
+            <div class="product-box">
+                <img id="cimg" class="product-img" src="assets/images/Produits/pasteque.jpeg" alt="">
+                <h2 id="ctitle" class="product-title">Semences Pastèque diamant f1</h2>
+                <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+            </div>
+            <!---Produis--->
+            <div class="product-box">
+                <img id="cimg" class="product-img" src="assets/images/Produits/semences de melon magneficenza.jpeg" alt="">
+                <h2 id="ctitle" class="product-title">Semences de melon magneficenza</h2>
+                <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+            </div>
+            <!---Produis--->
+            <div class="product-box">
+                <img id="cimg" class="product-img" src="assets/images/Produits/semences de melon pegaso f1.jpeg" alt="">
+                <h2 id="ctitle" class="product-title">Semences de melon pegaso f1</h2>
+                <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+            </div>
+            <!---Produis--->
+            <div class="product-box">
+                <img id="cimg" class="product-img" src="assets/images/Produits/semences de pasteque fabiola f1.jpeg" alt="">
+                <h2 id="ctitle" class="product-title">Semences de pastèque fabiola f1 </h2>
+                <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+            </div>
+            <!---Produis--->
+        <div class="product-box">
+            <img id="cimg" class="product-img" src="assets/images/Produits/TERRE.jpeg" alt="">
+            <h2 id="ctitle" class="product-title">Terreau semis et repiquage</h2>
+            <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+        </div>
+    <!---Produis--->
+        <div class="product-box">
+            <img id="cimg" class="product-img" src="assets/images/Produits/tuyau-pe-irrigation.jpeg" alt="">
+            <h2 id="ctitle" class="product-title">.<br>Tuyau</h2>
+            <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+        </div>
+        <!---Produis--->
+        <div class="product-box">
+            <img id="cimg" class="product-img" src="assets/images/Produits/materiel.jpeg" alt="">
+            <h2 id="ctitle" class="product-title">.<br>Pro-Tape</h2>
+            <i class='bx bx-shoping-bag add-cart' id="openCart">Discuter</i>
+        </div>
+    </div>
+    </section>
+    <section id="equipes" class="equipes">
+        <h1 class="Titles">NOS EQUIPES</h1>
+        <div class="Boxequipes">
+            <!----equipes-->
+            <div class="boxequipe">
+                <div class="boximg">
+                    <img class="imgequipe" src="assets/images/ingenieur.jpeg" alt="">
+                </div>
+                <div class="boxdetailequipe">
+                    <h2 class="nomEquipe">Techniciens et Ingénieurs agronomes</h2>
+                </div>
+            </div>
+            <!----equipes-->
+            <div class="boxequipe">
+                <div class="boximg">
+                    <img class="imgequipe" src="assets/images/terre.jpeg" alt="">
+                </div>
+                <div class="boxdetailequipe">
+                    <h2 class="nomEquipe">Hommes de terrains</h2>
+                </div>
+            </div>
+            <!----equipes-->
+            <div class="boxequipe">
+                <div class="boximg">
+                    <img class="imgequipe" src="assets/images/plomberie.jpeg" alt="">
+                </div>
+                <div class="boxdetailequipe">
+                    <h2 class="nomEquipe">Plomberie</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="adresses" class="adresses">
+        <h1 class="Titles">NOS ADRESSES</h1>
+        <div class="Boxadresses">
+            <div class="boxadresses">
+                <div class="Lesadresses">
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/facebook.png" alt="">
+                        <a href="https://www.facebook.com/Main-verte-107734421625449" class="titleAdresse">FACEBOOK</a>
+                    </div>
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/whatsapp.png" alt="">
+                        <a href="https://wa.me/22373732677?text=" class="titleAdresse">WHATSAPP</a>
+                    </div>
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/tic-tac-2.png" alt="">
+                        <a href="https://www.tiktok.com/@mainverteofficiel?_r=1&_d=e3mcc6642jmbgc&sec_uid=MS4wLjABAAAAtvUYlnHrEx1eftxM3diiaAHoBxWCKkYe0ysFyq11C2Npzrgm57sDJqEWK8-6ICz1&share_author_id=7183853267582223366&sharer_language=fr&source=h5_m&u_code=e6k1c20fb0idg4&timestamp=1684841754&user_id=7207116208117629958&sec_user_id=MS4wLjABAAAAL0TQjgtEodTSh4A0fyFp0n9jbewvZnWBS2f_oM6c1fRUdgrb_EYOIAF2SrFQR5pJ&utm_source=whatsapp&utm_campaign=client_share&utm_medium=android&share_iid=7226019680258230021&share_link_id=1258e01b-6dd0-4f58-b70e-f47407922ab5&share_app_id=1233&ugbiz_name=Account&ug_btm=b6880%2Cb2878&social_share_type=5" class="titleAdresse">TIKTOK</a>
+                    </div>
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/gmail.png" alt="">
+                        <a href="mailto:mainverte2022@gmail.com" class="titleAdresse">mainverte2022@gmail.com</a>
+                    </div>
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/appel-telephonique.png" alt="">
+                        <a href="tel:+22373732677" class="titleAdresse">+223 73 73 26 77</a>
+                    </div>
+                    <!---Adresse-->
+                    <div class="Adresse">
+                        <img class="imgAdresse" src="assets/icons/instagram.png" alt="">
+                        <a href="https://instagram.com/mainverte2022?igshid=NTc4MTIwNjQ2YQ==" class="titleAdresse">INSTAGRAM</a>
+                    </div>
+                </div>
+            </div>
+            <div class="boxmap">
+                <div class="CarteMap">
+                    <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=12.587299,-8.067890&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/124/"></a><br><style>.mapouter{position:relative;text-align:right;width:100%; height:auto}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;width:100%; height: auto;}</style></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="actions" class="actions">
+        <h1 class="Titles">NOS ACTIONS</h1>
+        <div class="BoxActions">
+            <div class="boximg1">
+                <img class="imgAction" src="assets/images/site amenager.jpeg" alt="">
+            </div>
+            <div class="boximg2">
+                <img class="imgAction" src="assets/images/pasteque.jpeg" alt="">
+            </div>
+            <div class="boximg3">
+                <img class="imgAction" src="assets/images/piment.jpeg" alt="">
+            </div>
+            <div class="boximg4">
+                <img class="imgAction" src="assets/images/papayer 2.jpeg" alt="">
+            </div>
+            <div class="boximg5">
+                <img class="imgAction" src="assets/images/chef.jpeg" alt="">
+            </div>
+            <div class="boximg6">
+                <img class="imgAction" src="assets/images/banana.jpeg" alt="">
+            </div>
+            <div class="boximg7">
+                <img class="imgAction" src="assets/images/papaye.jpeg" alt="">
+            </div>
+            <div class="boximg8">
+                <img class="imgAction" src="assets/images/papayer3.jpeg" alt="">
+            </div>
+            <div class="boximg9">
+                <img class="imgAction" src="assets/images/pr.jpeg" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h1 class="Titles">CONCTACTEZ-NOUS</h1>
+        <div class="BoxRejoindre">
+            <form action="" method="post">
+                <div class="inputNom">
+                    <input type="text" id="nom" class="nom" placeholder="Nom"><br>
+                </div>
+                <div class="inputPrenom">
+                    <input type="text" id="prenom" class="prenom" placeholder="Prenom"><br>
+                </div>
+                <div class="inputNumero">
+                    <input type="text" id="numero" class="numero" placeholder="Numero"><br>
+                </div>
+                <div class="inputMail">
+                    <input type="email" id="mail" class="mail" placeholder="Adresse mail"><br>
+                </div>
+                <div class="inputMessage">
+                    <textarea name="" id="message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="inputSubmit">
+                    <input class="submitC" id="submit" type="submit" onclick="sendToWhatsapp()" value="ENVOIYER">
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="partenaires" class="partenaires">
+        <h1 class="Titles">NOS PARTENAIRES</h1>
+        <div class="divpartenaires">
+            <img class="imgpartenaires" src="assets/images/partenaires/a2p.jpg" alt="">
+            <img class="imgpartenaires" src="assets/images/partenaires/ci_logo_enzactive.jpg" alt="">
+            <img class="imgpartenaires" src="assets/images/partenaires/kaba.png" alt="">
+            <img class="imgpartenaires" src="assets/images/partenaires/semandonis.php.png" alt="">
+            <img class="imgpartenaires" src="assets/images/partenaires/yara.png" alt="">
+            <h1 class="imgpartenaires">Bayer Mali</h1>
+        </div>
+    </section>
+    <footer class="MainFooter">
+        <div class="LESADRESSESFOOTER">
+            <!---Adresse-->
+            <a class="Adressef" href="https://www.facebook.com/Main-verte-107734421625449">
+                <img class="imgAdresse" src="assets/icons/facebook.png" alt="">
+            </a>
+            <!---Adresse-->
+            <a class="Adressef" href="https://wa.me/22373732677?text=">
+                <img class="imgAdresse" src="assets/icons/whatsapp.png" alt="">
+            </a>
+            <!---Adresse-->
+            <a class="Adressef" href="https://www.tiktok.com/@mainverteofficiel?_r=1&_d=e3mcc6642jmbgc&sec_uid=MS4wLjABAAAAtvUYlnHrEx1eftxM3diiaAHoBxWCKkYe0ysFyq11C2Npzrgm57sDJqEWK8-6ICz1&share_author_id=7183853267582223366&sharer_language=fr&source=h5_m&u_code=e6k1c20fb0idg4&timestamp=1684841754&user_id=7207116208117629958&sec_user_id=MS4wLjABAAAAL0TQjgtEodTSh4A0fyFp0n9jbewvZnWBS2f_oM6c1fRUdgrb_EYOIAF2SrFQR5pJ&utm_source=whatsapp&utm_campaign=client_share&utm_medium=android&share_iid=7226019680258230021&share_link_id=1258e01b-6dd0-4f58-b70e-f47407922ab5&share_app_id=1233&ugbiz_name=Account&ug_btm=b6880%2Cb2878&social_share_type=5">
+                <img class="imgAdresse" src="assets/icons/tic-tac-2.png" alt="">
+            </a>
+            <!---Adresse-->
+            <a class="Adressef" href="mailto:mainverte2022@gmail.com">
+                <img class="imgAdresse" src="assets/icons/gmail.png" alt="">
+            </a>
+            <!---Adresse-->
+            <a class="Adressef" href="tel:+22373732677">
+                <img class="imgAdresse" src="assets/icons/appel-telephonique.png" alt="">
+            </a>
+            <!---Adresse-->
+            <a class="Adressef" href="https://instagram.com/mainverte2022?igshid=NTc4MTIwNjQ2YQ==">
+                <img class="imgAdresse" src="assets/icons/instagram.png" alt="">
+            </a>
+        </div>
+        <div class="LESLIENFOOTER">
+            <a class="apropos footerf" href="#apropos">A propos</a>
+                <a class="services footerf" href="#services">Services</a>
+                <a class="magasin footerf" href="#magasin">Magasin</a>
+                <a class="equipes footerf" href="#equipes">Equipes</a>
+                <a class="adresses footerf" href="#adresses">Adresses</a>
+                <a class="adresses footerf" href="#actions">Actions</a>
+        </div>
+        <p class="textfooter">Copyright © 2023 Tous droits réservés.</p>
+        <section class="publicite"></section>
+    </footer>
+    <!-- Whatsapp -->
+    <script src="https://webaxen.com/js/jquery3.6.min.js"></script>
+    <script src="https://webaxen.com/js/bootstrap.bundle.min.js"></script>
+    <script src="https://webaxen.com/js/owl.carousel.min.js"></script>
+    <script src="https://webaxen.com/js/script.js"></script>
+    <script>
+        function sendToWhatsapp(){
+            var name = document.getElementById("nom").value;
+            var prename = document.getElementById("prenom").value;
+            var email = document.getElementById("mail").value;
+            var phone = document.getElementById("numero").value;
+            var message = document.getElementById("message").value;
+
+            var url = "https://wa.me/22373732677?text="
++"*Nom :* "+name+"."
++"*Prenom :* "+prename+"."
++"*Email :* "+email+"."
++"*Numero :* "+phone+"."
++"*Message :* "+message;
+
+window.open(url,'_blank').focus();
+}
+</script>
+<!--JS DE PANIER-->
+<script>
+    let cartIcon = document.querySelector('#cart-icon');
+    let cart = document.querySelector('.cart');
+    let closeCart = document.querySelector('#close-cart');
+    //Open Cart
+    cartIcon.onclick = () =>{
+        cart.classList.add("active");
+    }
+    // Close cart
+    closeCart.onclick = () =>{
+        cart.classList.remove("active");
+    }
+    //Cart Working js
+    if (document.readyState == "loading") {
+        document.addEventListener("DOMContentLoaded", ready);
+    }else{
+        ready();
+    }
+    //Making function
+    function ready(){
+        //Reomve Items From Cart
+        var reomveCartButtons = document.getElementsByClassName("cart-remove");
+        console.log(reomveCartButtons)
+        for (var i =0; i < reomveCartButtons.length; i++){
+            var button = reomveCartButtons[i]
+            button.addEventListener('click', removeCartItem)
+        }
+        // Quantity changes
+        var quantityInputs = document.getElementsByClassName("cart-quantity");
+        for (var i =0; i < quantityInputs.length; i++){
+            var input = quantityInputs[i]
+            input.addEventListener('change', quantityChanged);
+        }
+        //add to Cart
+        var addCart = document.getElementsByClassName('add-cart');
+        for (var i =0; i < addCart.length; i++){
+            var button = addCart[i];
+            button.addEventListener("click", addCartClicked);
+        }
+        //buy Button Work
+        document.getElementsByClassName('cwhatsapp')[0].addEventListener('click', buyButtonClicked);
+    }
+    //buy Button
+    function  buyButtonClicked(){
+        alert('Vous avez commandé')
+        var cartContent = document.getElementsByClassName('cart-content')[0];
+        while (cartContent.hasChildNodes()){
+            cartContent.removeChild(cartContent.firstChild);
+        }
+        updatetotal();
+    }
+    //Reome Items From Cart
+    function removeCartItem(event) {
+        var buttonClicked = event.target
+        buttonClicked.parentElement.remove()
+        updatetotal();
+    }
+    //Quantity Changes
+    function quantityChanged(event) {
+        var input = event.target;
+        if (isNaN(input.value) || input.value <= 0) {
+            input.value = 1;
+        }
+        updatetotal();
+    }
+    //Add to Cart
+    function addCartClicked(event){
+        var button = event.target
+        var shopProducts = button.parentElement
+        var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
+        var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
+        addProductToCart(title, productImg);
+        updatetotal();
+    }
+    function addProductToCart(title, productImg){
+       var cartShopBox = document.createElement("div");
+        cartShopBox.classList.add("cart-box");
+       var cartItems = document.getElementsByClassName("cart-content")[0];
+       var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
+       for (var i = 0; i < cartItemsNames.length; i--) {
+        if (cartItemsNames [i].innerHTML == title) {
+            alert("cet produict existe déjà dans votre panier");
+            return;
+        }
+    }
+    var cartBoxContent =`
+                <img src="${productImg}" alt="" class="cart-img" id="cimg">
+                <div class="detail-box">
+                <div class="cart-product-title" id="ctitle">${title}</div>
+                </div>
+                <!--remove Cart-->
+                <img class="cart-remove" src="assets/icons/effacer.png" style="width: 35px;height: 35px;" alt="">
+                `
+    cartShopBox.innerHTML = cartBoxContent
+    cartItems.append(cartShopBox)
+    cartShopBox.getElementsByClassName("cart-remove")[0].addEventListener('click', removeCartItem);
+    cartShopBox.getElementsByClassName("cart-quantity")[0].addEventListener("change", quantityChanged);
+    //Update Total
+    function updatetotal(){
+        var cartContent = document.getElementsByClassName("cart-content")[0];
+        var cartBoxes = cartContent.getElementsByClassName("cart-box");
+        var total = 0;
+        for (var i = 0; i < cartBoxes.length; i++){
+            var cartBox = cartBoxes[i];
+            var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+            var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+            var price = parseFloat(priceElement.innerText.replace("", "FCFA"));
+            var quantity = quantityElement.value;
+            total = total + price * quantity;
+        }
+            //if price cintain sime cents
+            document.getElementsByClassName("total-price")[0].innerText = total + "FCFA";
+        }
+    }
+    </script>
+    <!-- Button aller haut de la page -->
+<button onclick="topFunction()" id="myBtn" title="Aller en haut"><img src="assets/icons/up-chevron.png" style="height: 30px;width: 30px;" alt=""></button> 
+<!-- JS button aller haut de la page -->
+<script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        }
+</script>
+</body>
+</html>
